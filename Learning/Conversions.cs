@@ -53,3 +53,13 @@ if (int.TryParse(numbersInString, out intResult))
 
 // Or just get a simple bool if TryParse could convert or not
 bool success = decimal.TryParse(inputVariable, out decimal decimalNumber);
+
+// Culture in the way. When doing conversions make sure you know if the system is using . or , when dealing with decimals
+// You can force this to always be EN-US (using .) so behaviour does not change from system to system in different regions.
+
+// CurrentCulture "sv-SE" uses , which makes below code result in false
+bool success = decimal.TryParse("12.3", out decimal dec);
+
+// But in US, or forcing to use CurrentCulture US like code below.
+CultureInfo.CurrentCulture = new CultureInfo("en-US");
+// Now decimals use . and the success results in true
