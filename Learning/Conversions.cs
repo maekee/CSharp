@@ -44,3 +44,12 @@ Double.Parse()
 DateTime.Parse()
 TimeSpan.Parse()
 etc....
+
+// The TryParse method can be used to verify
+if (int.TryParse(numbersInString, out intResult))
+{
+  Console.WriteLine($"Conversion was successful to variable {intResult}");
+}
+
+// Or just get a simple bool if TryParse could convert or not
+bool success = decimal.TryParse(inputVariable, out decimal decimalNumber);
