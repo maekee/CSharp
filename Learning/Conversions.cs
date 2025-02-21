@@ -20,10 +20,11 @@ int intValue = 5;
 // Implicit casting means safe casting
 decimal myDecimal = intValue;
 
-// Explicit casting means unsafe casting, you need to specify the target type
+// Explicit casting means unsafe casting, you need to specify the target type with parentheses
+// This is a narrowing conversion. Meaning truncating everything on the right side of .
 int myInt = (int)myDecimal;
 
-// Convert Class methods
+// Convert Class methods. Converting rounds up. (decimal 1.5 to int, becomes 2)
 Convert.ToString()
 Convert.ToInt16()
 Convert.ToInt32() //int is System.Int32
