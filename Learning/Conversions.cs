@@ -35,7 +35,7 @@ Convert.ToDateTime()
 Convert.ToUInt16() .ToUInt32() .ToUInt64() //Only positive numbers
 etc..
 
-// The data types classes have the Parse method
+// The data types classes both have the Parse method and the TryParse method.
 Boolean.Parse()
 int.Parse()
 Decimal.Parse()
@@ -43,9 +43,9 @@ float.Parse()
 Double.Parse()
 DateTime.Parse()
 TimeSpan.Parse()
-etc....
+...etc
 
-// The TryParse method can be used to verify
+// The TryParse method can be used to verify, returns bool and new value in out variable
 if (int.TryParse(numbersInString, out intResult))
 {
   Console.WriteLine($"Conversion was successful to variable {intResult}");
