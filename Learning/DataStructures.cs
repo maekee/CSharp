@@ -47,7 +47,7 @@ HashSet<string> europeanCountryHashSet = new HashSet<string>() { "Germany", "Ukr
 HashSet<string> intersectionSet = new HashSet<string>(nordicCountryHashSet); //Create a copy
 intersectionSet.IntersectWith(europeanCountryHashSet); //results in only Sweden present in new HashSet (intersects)
 
-// QUEUES
+// QUEUES (Think Queue, first in line, first to be processed)
 // FIFO - First-in First-out. We use Enqueue and Dequeue.
 
 Queue<string> myQueue = new Queue<string>();
@@ -59,3 +59,7 @@ Console.WriteLine(myQueue.Peek()); //Peek at the front of the queue = Mikey
 myQueue.Dequeue(); //First in, first out = Mikey
 
 Console.WriteLine(myQueue.Peek()); //Who's next? Sebz!
+
+// STACKS (Think stack of papers, last paper on stack, first out)
+// Opposite to queues, LIFO - Last-in First-Out
+
