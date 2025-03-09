@@ -2,6 +2,8 @@
 
 // Regex.IsMatch
 Regex.IsMatch("Uppsala","""U\w+"""); //Returns true
+Regex.IsMatch("uppsala","""U\w+"""); //Returns false (case sensitive)
+Regex.IsMatch("uppsala","""U\w+""",RegexOptions.IgnoreCase); //Returns true (case insensitive)
 
 // Regex.Replace
 string regexFilter = """(S\w+)""";
@@ -12,9 +14,9 @@ string newString = Regex.Replace(originalString, regexFilter, "Herobrine"); //Re
 string[] swedishCitiesArr = "Visby,Stockholm,Malmö,Göteborg,Uppsala,Västerås,Umeå,Kalmar".Split(",");
 string regexFilter = """(V\w+|U\w+)""";
 
-foreach (string city in swedishCities.Order())
+foreach (string city in swedishCitiesArr.Order())
 {
-    if (Regex.IsMatch(city.ToLower(), regexFilter.ToLower()))
+    if (Regex.IsMatch(city, regexFilter,RegexOptions.IgnoreCase))
     {
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine($"{city} is a match");
@@ -28,5 +30,5 @@ foreach (string city in swedishCities.Order())
     }
 }
 
-//We can also use my dear friend System.Linq
-var hej = swedishCitiesArr.Where(city => Regex.IsMatch(city.ToLower(), """(v\w+|u\w+)"""));
+//We can also use my dear friend System.Linq, case insensitive
+var matches = swedishCitiesArr.Where(city => Regex.IsMatch(city, """(V\w+|U\w+)""", RegexOptions.IgnoreCase));
