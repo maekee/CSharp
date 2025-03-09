@@ -72,6 +72,25 @@ content.Append("Hostname=");
 content.Append("Computer001");
 File.WriteAllText(newIniFile,content.ToString()); //Write content to file
 
+
+// Display Content in file with the using keyword
+// The using keyword in C# ensure that resources, such as file streams are properly disposed of after they are no longer needed
+// Designed to work with objects that implement the IDisposable interface (defines the Dispose() method)
+// FileStream, StreamReader, and StreamWriter implement IDisposable.
+
+using (StreamReader streamReader = new StreamReader(newIniFile))
+{
+    while (!streamReader.EndOfStream)
+    {
+        string line = streamReader.ReadLine();
+        if (Regex.IsMatch(line, "regexMatchStringHere", RegexOptions.IgnoreCase))
+        {
+            Console.WriteLine(line);
+        }
+    }
+}
+
+
 //Display content in file from string array
 string[] contentData = File.ReadAllLines(newIniFile); 
 foreach (string line in contentData) //Read all lines as string[]
