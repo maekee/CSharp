@@ -21,6 +21,12 @@ string[] files = Directory.GetFiles(folderPath); //returns
 // + When dealing with directories containing a large number of files.
 // + when you want to start processing files as soon as they are found.
 
+// Search for ini files in folder and subfolders
+foreach (string filePath in Directory.EnumerateFiles(basePath, "*.ini", SearchOption.AllDirectories))
+{
+    Console.WriteLine(filePath);
+}
+
 // FILE
 Create : File.Create, File.Copy
 Read   : File.Exists, File.ReadAllLines, File.ReadAllText, File.ReadAllBytes, FileInfo
