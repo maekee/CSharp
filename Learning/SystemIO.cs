@@ -7,6 +7,20 @@ Read   : Directory.Exists, Directory.GetFiles, Directory.GetDirectories, Directo
 Update : Directory.Move //includes Rename
 Delete : Directory.Delete
 
+//Code examples
+
+Directory.CreateDirectory(folderPath);
+Directory.Move(folderPath, newFolderPath); //Can also be used to rename folders
+Directory.Delete(folderPath);
+
+string[] files = Directory.GetFiles(folderPath); //returns 
+// Waits until all files have been found before returning the entire array into memory
+
+// There is also an EnumerateFiles method, which returns an IEnumerable<string> instead of string[].
+// Ideal when you're processing files sequentially and don't need to load the entire list into memory.
+// + When dealing with directories containing a large number of files.
+// + when you want to start processing files as soon as they are found.
+
 // FILE
 Create : File.Create, File.Copy
 Read   : File.Exists, File.ReadAllLines, File.ReadAllText, File.ReadAllBytes, FileInfo
