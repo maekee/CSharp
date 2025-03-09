@@ -13,11 +13,21 @@ Read   : File.Exists, File.ReadAllLines, File.ReadAllText, File.ReadAllBytes, Fi
 Update : File.AppendText, File.AppendAllLines, File.WriteAllLines
 Delete : File.Delete
 
+// Building Paths
+There are two Methods we can use to building Paths: Path.Combine and Path.Join. They work similar and sometimes the same.
+//Path.Combine discards one path if the other is an absolute path
+//Path.Join joins together paths what ever values are supplied.
+
+Path.Combine(@"C:\Folder123\", @"C:\Folder123\"); //results in "C:\Folder123\"
+Path.Join(@"C:\Folder123\", @"C:\Folder123\"); //results in "C:\Folder123\C:\\Folder123\"
+// Path.xxxx(@"C:\Folder123", @"filename.txt") //Join and Combine will give the same result
+    
 // Code examples
 
-string iniFile = @"D:\CSharp-Projects\RandomFiles\application.ini";
-string newIniFile = @"D:\CSharp-Projects\RandomFiles\AppZ.ini";
-string backupIniFile = @"D:\CSharp-Projects\RandomFiles\backup.ini";
+string basePath = @"D:\CSharp-Projects\RandomFiles\";
+string iniFile = Path.Combine(basePath, "application.ini");
+string newIniFile = Path.Combine(basePath, "AppZ.ini");
+string backupIniFile = Path.Combine(basePath, "backup.ini");
 
 File.Delete(iniFile); //Delete the file
 File.Delete(newIniFile); //Delete the file
