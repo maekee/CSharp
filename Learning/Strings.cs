@@ -36,6 +36,10 @@ doubleValue.ToString("C", new System.Globalization.CultureInfo("en-US")); //$1,6
 42.ToString("B"); //Binary 101010
 42.ToString("D5"); //Digits 00042
 
+int i = 100;
+$"{i,-10}X" // "100       X"
+$"{i,10}X" // "       100X"
+
 42.ToString("F2"); //Decimals 42,00
 
 double pi = 3.14159;
