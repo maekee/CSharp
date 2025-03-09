@@ -1,6 +1,6 @@
 // I am a big fan of regex, so here goes...
 
-// Regex.IsMatch
+// Regex.IsMatch //IsMatch returns bool
 Regex.IsMatch("Uppsala","""U\w+"""); //Returns true
 Regex.IsMatch("uppsala","""U\w+"""); //Returns false (case sensitive)
 Regex.IsMatch("uppsala","""U\w+""",RegexOptions.IgnoreCase); //Returns true (case insensitive)
@@ -9,6 +9,28 @@ Regex.IsMatch("uppsala","""U\w+""",RegexOptions.IgnoreCase); //Returns true (cas
 string regexFilter = """(S\w+)""";
 string originalString = "Victoria plays with Steve";
 string newString = Regex.Replace(originalString, regexFilter, "Herobrine"); //Returns "Victoria plays with Herobrine"
+
+// Regex.Split
+string input = @"07/14-2007";
+string patternCaptureGroups = @"(-)|(/)";
+string patternNoCaptureGroups = @"-|/";
+
+string[] here = Regex.Split(input, patternCaptureGroups); //Returns string array with 07, /, 14, -, 2007 (regex using capture groups)
+string[] here = Regex.Split(input, patternNoCaptureGroups); //Returns string array with 07, 14, 2007 (regex using no capture groups)
+
+// Regex.Match code example with capture group
+
+string input = @"07/14/2007";
+string pattern = @"\d+/\d+/(\d+)$";
+
+Match regexMatch = Regex.Match(input,pattern);
+
+if (regexMatch.Success)
+{
+    string matchValue = regexMatch.Groups[1].Value;
+}
+
+//Code example using IsMatch
 
 //How about matching from string array, and make it case-insensitive
 string[] swedishCitiesArr = "Visby,Stockholm,Malmö,Göteborg,Uppsala,Västerås,Umeå,Kalmar".Split(",");
