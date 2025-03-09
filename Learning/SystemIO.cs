@@ -21,6 +21,11 @@ There are two Methods we can use to building Paths: Path.Combine and Path.Join. 
 Path.Combine(@"C:\Folder123\", @"C:\Folder123\"); //results in "C:\Folder123\"
 Path.Join(@"C:\Folder123\", @"C:\Folder123\"); //results in "C:\Folder123\C:\\Folder123\"
 // Path.xxxx(@"C:\Folder123", @"filename.txt") //Join and Combine will give the same result
+
+// If you want to use Windows standardfolders like Documents, Desktop etc there is an Enum available called Environment.SpecialFolder
+https://learn.microsoft.com/en-us/dotnet/api/system.environment.specialfolder
+// Get the dynamic path with the GetFolderPath method:
+System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); //Retrieves the MyDocuments path
     
 // Code examples
 
