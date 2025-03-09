@@ -40,6 +40,10 @@ int i = 100;
 $"{i,-10}X" // "100       X"
 $"{i,10}X" // "       100X"
 
+//We can also use the Padding methods
+42.ToString().PadLeft(5, 'X'); //XXX42
+42.ToString().PadRight(5, 'X'); //42XXX
+
 42.ToString("F2"); //Decimals 42,00
 
 double pi = 3.14159;
