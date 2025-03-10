@@ -31,6 +31,7 @@ string rawStringMultipleLines = """
 double doubleValue = 1632.54;
 doubleValue.ToString("C", new System.Globalization.CultureInfo("en-US")); //$1,632.54
 doubleValue.ToString("$0.00"); // $100,00
+doubleValue.ToString("0.0 kr") // 100,0 kr
 
 0.1.ToString("P1"); //Percent 10,0%
 42.ToString("X"); //Hex 2A
