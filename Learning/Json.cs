@@ -3,6 +3,7 @@
 using System;
 using System.IO;
 using System.Text.Json;
+using System.Text.Encodings.Web;
 
 // Person class constructor uses GivenName and SurName below
 List<Person> listOfPersons = new List<Person>
