@@ -90,6 +90,11 @@ using (StreamReader streamReader = new StreamReader(newIniFile))
     }
 }
 
+// Write line with the using statement and StreamWriter
+using (StreamWriter daWriter = new StreamWriter(filePath, false, Encoding.UTF8)) //false overwrites, true appends
+{
+    daWriter.Write(customString);
+}
 
 //Display content in file from string array
 string[] contentData = File.ReadAllLines(newIniFile); 
