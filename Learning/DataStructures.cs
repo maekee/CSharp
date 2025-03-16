@@ -7,6 +7,12 @@ int[] intArr = new int[3];
 int[] intArr = new int[] { 1, 2, 3 };
 string[] strArr = new string[] { "Sweden", "Norway", "Denmark" };
 
+// Jagged Array (Array of arrays)
+string[][] documentKeywords = new string[3][];
+documentKeywords[0] = new string[] { "machine learning", "artificial intelligence", "data analysis" };
+documentKeywords[1] = new string[] { "web development", "javascript", "react", "html", "css" };
+documentKeywords[2] = new string[] { "database", "sql", "nosql" };
+
 // 2D Array
 string[,] str2DArr = new string[,] { { "Dog", "Cat" }, { "Car", "Boat" }, { "Computer", "Tv" } };
 Console.WriteLine(str2DArr[0,1]); //Results in Cat
