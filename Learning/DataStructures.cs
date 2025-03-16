@@ -69,3 +69,13 @@ Console.WriteLine(myQueue.Peek()); //Who's next? Sebz!
 // STACKS (Think stack of papers, last paper on stack, first out)
 // Opposite to queues, LIFO - Last-in First-Out
 
+// VALUE TUPLE
+// Value tuples are lightweight data structures that allow you to return
+// multiple values from a method without creating a custom class or struct.
+static (string? one, string? two, string? three) ReturnThree()
+{
+    return ("ett", "två", "tre");
+}
+
+var torsten = ReturnThree();
+Console.WriteLine(torsten.one); //ett
