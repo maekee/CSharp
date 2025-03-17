@@ -79,6 +79,10 @@ foreach (string city in swedishCitiesArr.Order())
     }
 }
 
+// Regex Security precautions
+// To avoid Ddos attacks, use a timeout. Especially when the input is not trusted
+Regex.Match(input, pattern, RegexOptions.None, TimeSpan.FromSeconds(1)); // 1 second timeout
+
 // We can also use my dear friend System.Linq, case insensitive
 var matches = swedishCitiesArr.Where(city => Regex.IsMatch(city, """(V\w+|U\w+)""", RegexOptions.IgnoreCase));
 
