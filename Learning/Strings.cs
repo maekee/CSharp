@@ -70,3 +70,13 @@ string pi = $"Pi to two decimal places: {pi:F2}"; //2 decimals, 3.14
 // Static string methods
 string.IsNullOrEmpty(myString); //null or empty string ("")
 string.IsNullOrWhiteSpace(myString); //null, empty string ("") or white space (spaces, tabs, new lines)
+
+// We can compare strings with == and Equals, the difference is additiona options
+// Which method do you think looks best for case-insensitive match? If you ask me? resultD!
+string stringUpper = "Hello";
+string stringLower = "hello";
+
+bool resultA = stringUpper == stringLower; //false
+bool resultB = stringUpper.ToLower() == stringLower.ToLower(); //true
+bool resultC = stringLower.Equals(stringUpper); //false
+bool resultD = stringLower.Equals(stringUpper, StringComparison.OrdinalIgnoreCase); //true
