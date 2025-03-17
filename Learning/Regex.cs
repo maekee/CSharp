@@ -67,3 +67,6 @@ foreach (string city in swedishCitiesArr.Order())
 
 // We can also use my dear friend System.Linq, case insensitive
 var matches = swedishCitiesArr.Where(city => Regex.IsMatch(city, """(V\w+|U\w+)""", RegexOptions.IgnoreCase));
+
+// If we want to store the regex pattern in a const, the color highlighting in Visual Studio disappears
+// We can fix this by preceeding the line before with: //language=regex
