@@ -43,6 +43,20 @@ foreach (var regexMatch in result)
     Console.WriteLine(regexMatch);
 }
 
+// We can also add RegexOptions to the Matches method for additional control
+MatchCollection result = Regex.Matches(input, regexFilter, RegexOptions.IgnoreCase);
+
+// RegexOptions.None //Default behaviour
+// RegexOptions.IgnoreCase //Case-insensitive matching
+// RegexOptions.Multiline //Multiline mode, changes meaning of ^ and $
+// RegexOptions.Singleline //Singleline mode, changes meaning of .
+// RegexOptions.Compiled //Precompiles the regex (can improve performance)
+// RegexOptions.ExplicitCapture //Only explicitly named or numbered groups are captured
+// RegexOptions.CultureInvariant //Specifies that cultural differences in language are ignored
+// RegexOptions.IgnorePatternWhitespace //Eliminates unescaped white space and enables comments marked with #
+// RegexOptions.RightToLeft //Search is performed from right to left
+// RegexOptions.NonBacktracking //Disables backtracking, linear-time processing.
+
 ////// Code example using IsMatch //////
 
 // How about matching from string array, and make it case-insensitive
