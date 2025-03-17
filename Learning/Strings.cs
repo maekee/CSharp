@@ -92,3 +92,9 @@ bool resultA = stringUpper == stringLower; //false
 bool resultB = stringUpper.ToLower() == stringLower.ToLower(); //true
 bool resultC = stringLower.Equals(stringUpper); //false
 bool resultD = stringLower.Equals(stringUpper, StringComparison.OrdinalIgnoreCase); //true
+
+// We can also use the string.Compare
+// Returns an integer that indicates the relationship of the two substrings to each other in the sort order.
+// 0 : Same position, 1 or -1 : Not the same position = not equals
+int resA = string.Compare(stringUpper, stringLower, StringComparison.OrdinalIgnoreCase); //returns 0
+int resA = string.Compare(stringUpper, stringLower); //returns 1
