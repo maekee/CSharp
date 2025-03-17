@@ -67,6 +67,18 @@ $"{i,10}X" // "       100X"
 double pi = 3.14159;
 string pi = $"Pi to two decimal places: {pi:F2}"; //2 decimals, 3.14
 
+// GUID formatted
+
+//Guid myGuid = Guid.NewGuid(); //Generate new random guid
+Guid myGuid = new Guid("00000000-0000-0000-0000-000000000000"); //Used for example
+
+Console.WriteLine("Original Guid: " + myGuid); //00000000-0000-0000-0000-000000000000
+Console.WriteLine("N format (32 digits): " + myGuid.ToString("N")); //00000000000000000000000000000000
+Console.WriteLine("D format (hyphens): " + myGuid.ToString("D")); //00000000-0000-0000-0000-000000000000
+Console.WriteLine("B format (braces): " + myGuid.ToString("B")); //{00000000-0000-0000-0000-000000000000}
+Console.WriteLine("P format (parentheses): " + myGuid.ToString("P")); //(00000000-0000-0000-0000-000000000000)
+Console.WriteLine("X format (registry-style): " + myGuid.ToString("X")); //{0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}
+
 // Static string methods
 string.IsNullOrEmpty(myString); //null or empty string ("")
 string.IsNullOrWhiteSpace(myString); //null, empty string ("") or white space (spaces, tabs, new lines)
