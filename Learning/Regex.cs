@@ -43,7 +43,7 @@ foreach (var regexMatch in result)
     Console.WriteLine(regexMatch);
 }
 
-// We can also add RegexOptions to the Matches method for additional control
+// We can also add RegexOptions to the Regex methods for additional control
 MatchCollection result = Regex.Matches(input, regexFilter, RegexOptions.IgnoreCase);
 
 // RegexOptions.None //Default behaviour
