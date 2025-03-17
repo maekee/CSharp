@@ -19,7 +19,6 @@ string[] here = Regex.Split(input, patternCaptureGroups); //Returns string array
 string[] here = Regex.Split(input, patternNoCaptureGroups); //Returns string array with 07, 14, 2007 (regex using no capture groups)
 
 // Regex.Match code example with capture group
-
 string input = @"07/14/2007";
 string pattern = @"\d+/\d+/(\d+)$";
 
@@ -28,6 +27,20 @@ Match regexMatch = Regex.Match(input,pattern);
 if (regexMatch.Success)
 {
     string matchValue = regexMatch.Groups[1].Value;
+}
+
+// Regex.Matches code example that captures all matches
+string input = "Monday is the first day, Tuesday is the second and Wednesday third";
+string regexFilter = @"(\w{3,6}day)";
+
+MatchCollection result = Regex.Matches(input, regexFilter);
+
+Console.WriteLine($"We get {result.Count} matches"); //3 matches
+Console.WriteLine($"The first match is: {result[0].Value}"); //Monday
+
+foreach (var regexMatch in result)
+{
+    Console.WriteLine(regexMatch);
 }
 
 //Code example using IsMatch
