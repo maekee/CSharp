@@ -18,16 +18,32 @@ string fromCharArray = new string(charArray);
 
 // Other nice things we can do with strings...
 string formatted = string.Format("The value is: {0}", 42); //Composite formatting
+
 string interpolated = $"The value is: {42}"; //String Interpolation
+
 string filePath = @"C:\Windows\System32\calc.exe"; //Verbatim string literal
+
 string rawStringOneLine = """This is a "raw string literal". It can contain characters like \, ' and ".""" //Raw string literal, starts and ends with """;
 string rawStringMultipleLines = """
         <xml example = "true">
-            <body>
-            </body>
+          <body>
+          </body>
+        </xml>
+        """;
+// Raw string literals can be combined with string interpolation
+string rawStringMultipleLines = $"""
+        <xml example = "true">
+          <body>
+            <value1>{givenName}</value1>
+          </body>
         </xml>
         """;
 
+// In case we have curly braces in the data of the multiline value, we can make string interpolation require two curly braces, just prefix with two dollar signs
+string rawStringMultipleLines = $$"""
+        Strings are { fun } to {{verb}} with
+        """;
+        
 double doubleValue = 1632.54;
 doubleValue.ToString("C", new System.Globalization.CultureInfo("en-US")); //$1,632.54
 doubleValue.ToString("$0.00"); // $1632,54
