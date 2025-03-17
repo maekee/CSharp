@@ -50,3 +50,7 @@ $"{i,10}X" // "       100X"
 
 double pi = 3.14159;
 string pi = $"Pi to two decimal places: {pi:F2}"; //2 decimals, 3.14
+
+// Static string methods
+string.IsNullOrEmpty(myString); //null or empty string ("")
+string.IsNullOrWhiteSpace(myString); //null, empty string ("") or white space (spaces, tabs, new lines)
