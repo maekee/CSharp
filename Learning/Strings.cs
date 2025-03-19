@@ -18,10 +18,10 @@ string fromCharArray = new string(charArray);
 
 // Other nice things we can do with strings...
 string formatted = string.Format("The value is: {0}", 42); //Composite formatting
-
 string interpolated = $"The value is: {42}"; //String Interpolation
-
 string filePath = @"C:\Windows\System32\calc.exe"; //Verbatim string literal
+
+combinedString = string.Concat(stringArray);
 
 string rawStringOneLine = """This is a "raw string literal". It can contain characters like \, ' and ".""" //Raw string literal, starts and ends with """;
 string rawStringMultipleLines = """
