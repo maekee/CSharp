@@ -1,18 +1,29 @@
 // Strings are immutable, meaning you re-create them in the background of you modify them.
-// If there are a lot of string modifications, we can improve performance with StringBuilder.
+// A string is a reference type, but often behaves like a value type. C# makes string easy to create with the equal operator.
 
+// If there are a lot of string modifications, we can improve performance with StringBuilder.
 StringBuilder sb = new StringBuilder();
 
 sb.Append("123");
 sb.Append("45");
 sb.Replace("12345", "ABCDE");
-sb.Clear();
+//sb.Clear();
 
 Console.Write(sb.ToString());
 
-// A string is a reference type, but often behaves like a value type. C# makes string easy to create with the equal operator.
-// Behind the scenes a constructor is used, which we also can explicitly call
+// To save performance we can supply the StringBuilder (SB) with an initial capacity (number characters)
+// For small strings or infrequent us the StringBuilder can have an larger overhead, even if its very minimal
+// If we know the estimated size, we can supply the capacity to avoid SB from growing unnecessary.
+// Even a rough estimate is better than relying on the default capacity (16)
+StringBuilder sb = new StringBuilder(2048); //Changes from default capacity 16 to 2048
 
+// If we want to go further down the performance rabbit hole there is also the DefaultInterpolatedStringHandler
+DefaultInterpolatedStringHandler handler = new DefaultInterpolatedStringHandler();
+handler.AppendLiteral($"Hello {name}");
+var stringNotComplete = handler.ToString(); //Retrieve the final constructed string without resetting the handler
+var finalString = handler.ToStringAndClear(); // Retrieving the final constructed string and then resetting the handler
+
+// Behind the scenes a constructor is used, which we also can explicitly call
 string ordinaryHello = new string("Hello");
 string fromCharArray = new string(charArray);
 
