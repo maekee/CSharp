@@ -35,6 +35,8 @@ newList = ghosts.Where(ghost => ghost.GhostName.StartsWith("C") && ghost.GhostAg
 newList = ghosts.Where(ghost => Regex.Match(ghost.GhostName, @"^\w+er").Success).ToList();
 
 // FIRST, FIRSTORDEFAULT, LAST, LASTORDEFAULT, SINGLE, SINGLEORDEFAULT examples
+// If you know that the element exists, use First, Last and Single.
+// If you dont know if the element exists, use ..OrDefault methods.
 
 // First, query syntax followed by method syntax. Throws exception, so remember to catch these
 resultGhost = (from ghost in ghosts select ghost).First(ghost => ghost.GhostColor == "Yellow");
@@ -50,6 +52,7 @@ resultGhost = ghosts.FirstOrDefault(ghost => ghost.GhostColor == "Yellowish",
 // Last and LastOrDefault, works the same but searches backwards. Just like First, Last also Throws exception, so remember to catch these
 
 // Single, returns of a single one item is found (throws exception if not found or multiple found) 
-// SingleOrDefault, returns null instead of exception. Like the other ...OrDefault methods.
+// SingleOrDefault, returns null instead of exception. Like the other *OrDefault methods.
 
 // Just like the FirstOrDefault, both LastOrDefault and SingleOrDefault can also take a second parameter
+
