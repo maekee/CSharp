@@ -175,6 +175,7 @@ ghosts.SequenceEqual(ghost2, comparer);
 
 // EXCEPT/EXCEPTBY
 // Except returns a new sequence that contains only the elements from the first sequence that are not in the second sequence.
+// ExceptBy returns a new sequence based on a condition in lambda.
 
 int[] theNumbers = new int[] { 0, 1, 2, 3 };
 int[] moreNumbers = new int[] { 0, 1 };
@@ -183,3 +184,9 @@ resultIntList = theNumbers.Except(moreNumbers).ToList(); //Returns 2, 3, because
 
 // You can then check the other way and see whats missing in the other list
 resultIntList = moreNumbers.(theNumbers.Except).ToList(); //Returns 0, all entries in moreNumbers are present in theNumbers
+
+int[] theNumbers = new int[] { 0,1,2,3,4 };
+int[] excludedNumbers = new int[] { 0,1,2 };
+
+// ExceptBy allows you to define what part of the objects in your lists will be used to determine if the objects are considered the same.
+resultIntList = theNumbers.ExceptBy(excludedNumbers, n => n).ToList(); // Returns a list of all items, except by excludedNumbers, returns 3, 4
