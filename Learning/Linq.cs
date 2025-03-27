@@ -158,3 +158,28 @@ public class GhostNameComparer : EqualityComparer<Ghost>
 GhostNameComparer ghostComparer = new();
 
 boolResult = ghosts.Contains(new Ghost("Casper"), ghostComparer); // Make sure there is a constructor that takes the parameters passed to the new object
+
+
+// SEQUENCEEQUAL, compares two collections for value sequence equality containing int, decimal etc.
+
+int[] theNumbers = new int[] { 0, 1, 5 };
+int[] moreNumbers = new int[] { 0, 5, 1 };
+
+boolResult = theNumbers.SequenceEqual(moreNumbers); // false : 0,1,5 != 0,5,1
+boolResult = theNumbers.SequenceEqual(moreNumbers.OrderBy(n => n)); //true : 0,1,5 = 0,1,5
+
+// Object data types checks reference, create a new comparer class to check values in properties inheriting from EqualityComparer<T>
+ComparerClassName comparer = new ComparerClassName();
+ghosts.SequenceEqual(ghost2, comparer);
+
+
+// EXCEPT/EXCEPTBY
+// Except returns a new sequence that contains only the elements from the first sequence that are not in the second sequence.
+
+int[] theNumbers = new int[] { 0, 1, 2, 3 };
+int[] moreNumbers = new int[] { 0, 1 };
+
+resultIntList = theNumbers.Except(moreNumbers).ToList(); //Returns 2, 3, because these are not present in moreNumbers
+
+// You can then check the other way and see whats missing in the other list
+resultIntList = moreNumbers.(theNumbers.Except).ToList(); //Returns 0, all entries in moreNumbers are present in theNumbers
