@@ -185,8 +185,26 @@ resultIntList = theNumbers.Except(moreNumbers).ToList(); //Returns 2, 3, because
 // You can then check the other way and see whats missing in the other list
 resultIntList = moreNumbers.(theNumbers.Except).ToList(); //Returns 0, all entries in moreNumbers are present in theNumbers
 
-int[] theNumbers = new int[] { 0,1,2,3,4 };
-int[] excludedNumbers = new int[] { 0,1,2 };
 
 // ExceptBy allows you to define what part of the objects in your lists will be used to determine if the objects are considered the same.
-resultIntList = theNumbers.ExceptBy(excludedNumbers, n => n).ToList(); // Returns a list of all items, except by excludedNumbers, returns 3, 4
+string[] theNames = new string[] { "davor", "Bertil", "Susse", "David", "Albert", "PooBear", "Ally", "brent", "BabyYoda" };
+string[] excludedNames = new string[] { "davor", "PooBear", "Susse" };
+
+// Returns a new sequence containing the elements from theNames for which the extracted keys were not found in excludedNames
+stringList = theNames.ExceptBy(excludedNames, name => name).ToList();
+
+
+List<Ghost> ghostsList1 = new List<Ghost> {
+    new Ghost("Casper Sr1","Grey",5000),
+    new Ghost("Casper1","White",2000),
+    new Ghost("Casper Jr1","White",490)
+};
+List<Ghost> ghostsList2 = new List<Ghost> {
+    new Ghost("Casper Sr2","Grey",4000),
+    new Ghost("Casper2","White",2100),
+    new Ghost("Casper Jr","White",490)
+};
+
+// Find the Ghost objects in ghostsList1 whose GhostAge is not present in the GhostAge values of the Ghost objects in ghostsList2
+IEnumerable<Ghost> diff = ghostsList1.ExceptBy<Ghost, int>(
+    ghostsList2.Select(g2 => g2.GhostAge), g1 => g1.GhostAge); //Returns Casper Sr1 and Casper1 because those ages does not exist in ghostList2
