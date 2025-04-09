@@ -212,3 +212,14 @@ IEnumerable<Ghost> diff = ghostsList1.ExceptBy<Ghost, int>(
 // Breaking down
 //   Get GhostAge values from ghostsList2
 //   Compare GhostAge values from ghostsList1 with GhostAge values from ghostsList2
+
+
+// INTERSECT
+// Find all values in common between two lists, simple data types (int, decimal etc) checks values, comparer class to compare class objects
+
+int[] theNumbers = new int[] { 0,1,2,3,4 };
+int[] moreNumbers = new int[] { 3,4,5,6,7 };
+
+// Query syntax and method syntax
+resultIntList = (from num in theNumbers select num).Intersect(moreNumbers).ToList(); //Returns 3,4
+resultIntList = theNumbers.Intersect(moreNumbers).ToList(); //returns 3,4
